@@ -1,0 +1,52 @@
+var obj = {
+  fooVal: 'this is the value of foo',
+  get foo() {
+      return this.fooVal;
+  },
+  set foo(val) {
+      this.fooVal = val;
+  }
+}
+
+//setter
+obj.foo = 'hello';
+//getter 
+console.log(obj.foo);
+// "hello"
+
+//but the data is not procted yet
+//because this is still possible
+obj.fooVal = "Not protected" 
+
+//the encaplsulation can be made with
+//functional scope
+
+function myobj(){
+  var fooVal = 'this is the value of foo';
+  return {
+      get foo() {
+          return fooVal;
+      },
+      set foo(val) {
+          fooVal = val
+      }
+  }
+}
+
+var obj = myobj();
+console.log(obj.foo);
+// "this is the value of foo"
+
+//the other way is to use block scope
+/* BLOCK SCOPE, leave the braces alone! */
+{
+let fooVal = 'this is the value of foo';
+var obj = {
+    get foo() {
+        return fooVal;
+    },
+    set foo(val) {
+        fooVal = val
+    }
+  }
+}
