@@ -1,0 +1,28 @@
+JavaScript’s class syntax is more than syntax sugar.
+
+ES5 didn’t let us create true inheritance between constructor functions. 
+Object.create could create an ordinary object but not a function object.
+
+// ES5
+function B() {}
+B.f = function () {};
+
+function D() {}
+D.prototype = Object.create(B.prototype);
+
+D.f(); // error
+
+// ES6
+class B {
+  static f() {}
+}
+
+class D extends B {}
+
+D.f(); // ok
+
+ In ES5, objects were allocated before invoking the subclass constructor, and the subclass would pass that object
+ to the superclass constructor. Now with ES6 classes, objects are allocated before invoking the superclass constructor, 
+ and the superclass makes that object available to the subclass constructor. 
+ 
+  Class methods don’t have a prototype property.
