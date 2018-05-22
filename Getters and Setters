@@ -1,3 +1,25 @@
+class Person {
+    constructor(name) {
+        this._name = name;
+    }
+  
+    get name() {
+        return this._name;
+    }
+  
+    set name(newName) {
+        this._name = newName;
+    }
+  
+    walk() {
+        console.log(this._name + ' is walking.');
+    }
+}
+
+let bob = new Person();
+bob.name = 'Bob'
+
+
 var obj = {
   fooVal: 'this is the value of foo',
   get foo() {
