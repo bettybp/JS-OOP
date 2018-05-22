@@ -1,0 +1,18 @@
+class SimpleDate {
+  constructor(year, month, day) {
+  
+    let _year = year;
+    let _month = month;
+    let _day = day;
+
+    // Methods defined in the constructor capture variables in a closure
+    this.addDays = function(nDays) {
+      // Increase "this" date by n days
+      // ...
+    }
+
+    this.getDay = function() {
+      return _day;
+    }
+  }
+}
