@@ -16,3 +16,25 @@ class SimpleDate {
     }
   }
 }
+
+//second option is with Symbol
+
+const _yearKey = Symbol();
+const _monthKey = Symbol();
+const _dayKey = Symbol();
+  
+class SimpleDate {
+  constructor(year, month, day) {
+    this[_yearKey] = year;
+    this[_monthKey] = month;
+    this[_dayKey] = day;
+   }
+   getDay() {
+    return this[_dayKey];
+   }
+}
+var s = new SimpleDate(1982,2,3);
+//undefined
+console.log(s._monthKey);
+
+//third option is with WeakMap
