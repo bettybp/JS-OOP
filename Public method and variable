@@ -1,0 +1,22 @@
+
+const privateMethod = Symbol('privateMethod');
+
+class Service {
+  constructor () {
+    this.say = "Hello";
+  }
+  
+  [privateMethod] () {
+    console.log(this.say);
+  }
+  
+  publicMethod () {
+    this[privateMethod]()
+  }
+}
+
+// Uncaught TypeError: (intermediate value).privateMethod is not a function
+new Service().privateMethod()
+
+// Uncaught TypeError: (intermediate value)[Symbol(...)] is not a function
+new Service()[Symbol('privateMethod')]();
