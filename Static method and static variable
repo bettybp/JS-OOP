@@ -1,0 +1,39 @@
+class Person {
+    constructor(name,year){
+        ++Person.countPeople;
+        this._year = year;
+        this._name = name;
+    }
+    print() {
+        console.log(`My name is ${this._name} and I am ${this._year}.`);
+    }
+    static whatAmI(){
+        console.log(`I am a person № ${Person.countPeople}!`);
+    }
+}
+
+//count the instance of the Person class
+Person.countPeople = 0;
+
+class Programmer extends Person{
+    constructor(name,year,language) {
+        super(name,year);
+        this._language = language;
+    }
+    print() {
+        super.print();
+        console.log(`I can write code in ${this._language}.`);
+    }
+    static whatAmI() {
+        super.whatAmI();
+        console.log(`But I am also a programmer.`);
+    }
+}
+
+Person.whatAmI();
+var person1 = new Person('Harry',21);
+person1.print();
+
+var Andy = new Programmer('Andy',43,'JavaScript');
+Andy.print();
+Programmer.whatAmI();
